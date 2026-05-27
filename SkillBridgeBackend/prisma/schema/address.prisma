@@ -3,11 +3,11 @@ model Address {
     studentId String         @unique
     student   StudentProfile @relation(fields: [studentId], references: [id])
 
-    addressType AddressType
-    division    Division
-    district    District
-    upazila     Upazila
-    street      String
+    addressType AddressType?
+    division    Division?
+    district    District?
+    upazila     Upazila?
+    street      String?
     createdAt   DateTime    @default(now())
     updatedAt   DateTime    @updatedAt
 }

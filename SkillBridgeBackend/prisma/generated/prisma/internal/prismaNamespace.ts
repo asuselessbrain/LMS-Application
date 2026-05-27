@@ -1064,6 +1064,7 @@ export const StudentProfileScalarFieldEnum = {
   fullName: 'fullName',
   email: 'email',
   studentId: 'studentId',
+  image: 'image',
   phoneNumber: 'phoneNumber',
   whatsAppNumber: 'whatsAppNumber',
   gender: 'gender',

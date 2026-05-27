@@ -4,6 +4,7 @@ model StudentProfile {
   email          String    @unique
   studentId      String    @unique
   user           User      @relation(fields: [studentId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  image          String?
   phoneNumber    String    @unique
   whatsAppNumber String?
   gender         Gender?

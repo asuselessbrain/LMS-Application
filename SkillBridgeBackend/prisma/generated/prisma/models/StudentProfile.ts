@@ -29,6 +29,7 @@ export type StudentProfileMinAggregateOutputType = {
   fullName: string | null
   email: string | null
   studentId: string | null
+  image: string | null
   phoneNumber: string | null
   whatsAppNumber: string | null
   gender: $Enums.Gender | null
@@ -42,6 +43,7 @@ export type StudentProfileMaxAggregateOutputType = {
   fullName: string | null
   email: string | null
   studentId: string | null
+  image: string | null
   phoneNumber: string | null
   whatsAppNumber: string | null
   gender: $Enums.Gender | null
@@ -55,6 +57,7 @@ export type StudentProfileCountAggregateOutputType = {
   fullName: number
   email: number
   studentId: number
+  image: number
   phoneNumber: number
   whatsAppNumber: number
   gender: number
@@ -70,6 +73,7 @@ export type StudentProfileMinAggregateInputType = {
   fullName?: true
   email?: true
   studentId?: true
+  image?: true
   phoneNumber?: true
   whatsAppNumber?: true
   gender?: true
@@ -83,6 +87,7 @@ export type StudentProfileMaxAggregateInputType = {
   fullName?: true
   email?: true
   studentId?: true
+  image?: true
   phoneNumber?: true
   whatsAppNumber?: true
   gender?: true
@@ -96,6 +101,7 @@ export type StudentProfileCountAggregateInputType = {
   fullName?: true
   email?: true
   studentId?: true
+  image?: true
   phoneNumber?: true
   whatsAppNumber?: true
   gender?: true
@@ -182,6 +188,7 @@ export type StudentProfileGroupByOutputType = {
   fullName: string
   email: string
   studentId: string
+  image: string | null
   phoneNumber: string
   whatsAppNumber: string | null
   gender: $Enums.Gender | null
@@ -216,6 +223,7 @@ export type StudentProfileWhereInput = {
   fullName?: Prisma.StringFilter<"StudentProfile"> | string
   email?: Prisma.StringFilter<"StudentProfile"> | string
   studentId?: Prisma.StringFilter<"StudentProfile"> | string
+  image?: Prisma.StringNullableFilter<"StudentProfile"> | string | null
   phoneNumber?: Prisma.StringFilter<"StudentProfile"> | string
   whatsAppNumber?: Prisma.StringNullableFilter<"StudentProfile"> | string | null
   gender?: Prisma.EnumGenderNullableFilter<"StudentProfile"> | $Enums.Gender | null
@@ -232,6 +240,7 @@ export type StudentProfileOrderByWithRelationInput = {
   fullName?: Prisma.SortOrder
   email?: Prisma.SortOrder
   studentId?: Prisma.SortOrder
+  image?: Prisma.SortOrderInput | Prisma.SortOrder
   phoneNumber?: Prisma.SortOrder
   whatsAppNumber?: Prisma.SortOrderInput | Prisma.SortOrder
   gender?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -252,6 +261,7 @@ export type StudentProfileWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.StudentProfileWhereInput[]
   NOT?: Prisma.StudentProfileWhereInput | Prisma.StudentProfileWhereInput[]
   fullName?: Prisma.StringFilter<"StudentProfile"> | string
+  image?: Prisma.StringNullableFilter<"StudentProfile"> | string | null
   whatsAppNumber?: Prisma.StringNullableFilter<"StudentProfile"> | string | null
   gender?: Prisma.EnumGenderNullableFilter<"StudentProfile"> | $Enums.Gender | null
   dateOfBirth?: Prisma.DateTimeNullableFilter<"StudentProfile"> | Date | string | null
@@ -267,6 +277,7 @@ export type StudentProfileOrderByWithAggregationInput = {
   fullName?: Prisma.SortOrder
   email?: Prisma.SortOrder
   studentId?: Prisma.SortOrder
+  image?: Prisma.SortOrderInput | Prisma.SortOrder
   phoneNumber?: Prisma.SortOrder
   whatsAppNumber?: Prisma.SortOrderInput | Prisma.SortOrder
   gender?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -286,6 +297,7 @@ export type StudentProfileScalarWhereWithAggregatesInput = {
   fullName?: Prisma.StringWithAggregatesFilter<"StudentProfile"> | string
   email?: Prisma.StringWithAggregatesFilter<"StudentProfile"> | string
   studentId?: Prisma.StringWithAggregatesFilter<"StudentProfile"> | string
+  image?: Prisma.StringNullableWithAggregatesFilter<"StudentProfile"> | string | null
   phoneNumber?: Prisma.StringWithAggregatesFilter<"StudentProfile"> | string
   whatsAppNumber?: Prisma.StringNullableWithAggregatesFilter<"StudentProfile"> | string | null
   gender?: Prisma.EnumGenderNullableWithAggregatesFilter<"StudentProfile"> | $Enums.Gender | null
@@ -298,6 +310,7 @@ export type StudentProfileCreateInput = {
   id?: string
   fullName: string
   email: string
+  image?: string | null
   phoneNumber: string
   whatsAppNumber?: string | null
   gender?: $Enums.Gender | null
@@ -314,6 +327,7 @@ export type StudentProfileUncheckedCreateInput = {
   fullName: string
   email: string
   studentId: string
+  image?: string | null
   phoneNumber: string
   whatsAppNumber?: string | null
   gender?: $Enums.Gender | null
@@ -328,6 +342,7 @@ export type StudentProfileUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   fullName?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
   whatsAppNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
@@ -344,6 +359,7 @@ export type StudentProfileUncheckedUpdateInput = {
   fullName?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   studentId?: Prisma.StringFieldUpdateOperationsInput | string
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
   whatsAppNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
@@ -359,6 +375,7 @@ export type StudentProfileCreateManyInput = {
   fullName: string
   email: string
   studentId: string
+  image?: string | null
   phoneNumber: string
   whatsAppNumber?: string | null
   gender?: $Enums.Gender | null
@@ -371,6 +388,7 @@ export type StudentProfileUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   fullName?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
   whatsAppNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
@@ -384,6 +402,7 @@ export type StudentProfileUncheckedUpdateManyInput = {
   fullName?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   studentId?: Prisma.StringFieldUpdateOperationsInput | string
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
   whatsAppNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
@@ -407,6 +426,7 @@ export type StudentProfileCountOrderByAggregateInput = {
   fullName?: Prisma.SortOrder
   email?: Prisma.SortOrder
   studentId?: Prisma.SortOrder
+  image?: Prisma.SortOrder
   phoneNumber?: Prisma.SortOrder
   whatsAppNumber?: Prisma.SortOrder
   gender?: Prisma.SortOrder
@@ -420,6 +440,7 @@ export type StudentProfileMaxOrderByAggregateInput = {
   fullName?: Prisma.SortOrder
   email?: Prisma.SortOrder
   studentId?: Prisma.SortOrder
+  image?: Prisma.SortOrder
   phoneNumber?: Prisma.SortOrder
   whatsAppNumber?: Prisma.SortOrder
   gender?: Prisma.SortOrder
@@ -433,6 +454,7 @@ export type StudentProfileMinOrderByAggregateInput = {
   fullName?: Prisma.SortOrder
   email?: Prisma.SortOrder
   studentId?: Prisma.SortOrder
+  image?: Prisma.SortOrder
   phoneNumber?: Prisma.SortOrder
   whatsAppNumber?: Prisma.SortOrder
   gender?: Prisma.SortOrder
@@ -509,6 +531,7 @@ export type StudentProfileCreateWithoutAddressesInput = {
   id?: string
   fullName: string
   email: string
+  image?: string | null
   phoneNumber: string
   whatsAppNumber?: string | null
   gender?: $Enums.Gender | null
@@ -524,6 +547,7 @@ export type StudentProfileUncheckedCreateWithoutAddressesInput = {
   fullName: string
   email: string
   studentId: string
+  image?: string | null
   phoneNumber: string
   whatsAppNumber?: string | null
   gender?: $Enums.Gender | null
@@ -553,6 +577,7 @@ export type StudentProfileUpdateWithoutAddressesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   fullName?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
   whatsAppNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
@@ -568,6 +593,7 @@ export type StudentProfileUncheckedUpdateWithoutAddressesInput = {
   fullName?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   studentId?: Prisma.StringFieldUpdateOperationsInput | string
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
   whatsAppNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
@@ -581,6 +607,7 @@ export type StudentProfileCreateWithoutUserInput = {
   id?: string
   fullName: string
   email: string
+  image?: string | null
   phoneNumber: string
   whatsAppNumber?: string | null
   gender?: $Enums.Gender | null
@@ -595,6 +622,7 @@ export type StudentProfileUncheckedCreateWithoutUserInput = {
   id?: string
   fullName: string
   email: string
+  image?: string | null
   phoneNumber: string
   whatsAppNumber?: string | null
   gender?: $Enums.Gender | null
@@ -625,6 +653,7 @@ export type StudentProfileUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   fullName?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
   whatsAppNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
@@ -639,6 +668,7 @@ export type StudentProfileUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   fullName?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
   whatsAppNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
@@ -653,6 +683,7 @@ export type StudentProfileCreateWithoutEducationInput = {
   id?: string
   fullName: string
   email: string
+  image?: string | null
   phoneNumber: string
   whatsAppNumber?: string | null
   gender?: $Enums.Gender | null
@@ -668,6 +699,7 @@ export type StudentProfileUncheckedCreateWithoutEducationInput = {
   fullName: string
   email: string
   studentId: string
+  image?: string | null
   phoneNumber: string
   whatsAppNumber?: string | null
   gender?: $Enums.Gender | null
@@ -697,6 +729,7 @@ export type StudentProfileUpdateWithoutEducationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   fullName?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
   whatsAppNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
@@ -712,6 +745,7 @@ export type StudentProfileUncheckedUpdateWithoutEducationInput = {
   fullName?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   studentId?: Prisma.StringFieldUpdateOperationsInput | string
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
   whatsAppNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
@@ -766,6 +800,7 @@ export type StudentProfileSelect<ExtArgs extends runtime.Types.Extensions.Intern
   fullName?: boolean
   email?: boolean
   studentId?: boolean
+  image?: boolean
   phoneNumber?: boolean
   whatsAppNumber?: boolean
   gender?: boolean
@@ -783,6 +818,7 @@ export type StudentProfileSelectCreateManyAndReturn<ExtArgs extends runtime.Type
   fullName?: boolean
   email?: boolean
   studentId?: boolean
+  image?: boolean
   phoneNumber?: boolean
   whatsAppNumber?: boolean
   gender?: boolean
@@ -797,6 +833,7 @@ export type StudentProfileSelectUpdateManyAndReturn<ExtArgs extends runtime.Type
   fullName?: boolean
   email?: boolean
   studentId?: boolean
+  image?: boolean
   phoneNumber?: boolean
   whatsAppNumber?: boolean
   gender?: boolean
@@ -811,6 +848,7 @@ export type StudentProfileSelectScalar = {
   fullName?: boolean
   email?: boolean
   studentId?: boolean
+  image?: boolean
   phoneNumber?: boolean
   whatsAppNumber?: boolean
   gender?: boolean
@@ -819,7 +857,7 @@ export type StudentProfileSelectScalar = {
   updatedAt?: boolean
 }
 
-export type StudentProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "fullName" | "email" | "studentId" | "phoneNumber" | "whatsAppNumber" | "gender" | "dateOfBirth" | "createdAt" | "updatedAt", ExtArgs["result"]["studentProfile"]>
+export type StudentProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "fullName" | "email" | "studentId" | "image" | "phoneNumber" | "whatsAppNumber" | "gender" | "dateOfBirth" | "createdAt" | "updatedAt", ExtArgs["result"]["studentProfile"]>
 export type StudentProfileInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   addresses?: boolean | Prisma.StudentProfile$addressesArgs<ExtArgs>
@@ -845,6 +883,7 @@ export type $StudentProfilePayload<ExtArgs extends runtime.Types.Extensions.Inte
     fullName: string
     email: string
     studentId: string
+    image: string | null
     phoneNumber: string
     whatsAppNumber: string | null
     gender: $Enums.Gender | null
@@ -1281,6 +1320,7 @@ export interface StudentProfileFieldRefs {
   readonly fullName: Prisma.FieldRef<"StudentProfile", 'String'>
   readonly email: Prisma.FieldRef<"StudentProfile", 'String'>
   readonly studentId: Prisma.FieldRef<"StudentProfile", 'String'>
+  readonly image: Prisma.FieldRef<"StudentProfile", 'String'>
   readonly phoneNumber: Prisma.FieldRef<"StudentProfile", 'String'>
   readonly whatsAppNumber: Prisma.FieldRef<"StudentProfile", 'String'>
   readonly gender: Prisma.FieldRef<"StudentProfile", 'Gender'>

@@ -174,11 +174,11 @@ export type AddressGroupByArgs<ExtArgs extends runtime.Types.Extensions.Internal
 export type AddressGroupByOutputType = {
   id: string
   studentId: string
-  addressType: $Enums.AddressType
-  division: $Enums.Division
-  district: $Enums.District
-  upazila: $Enums.Upazila
-  street: string
+  addressType: $Enums.AddressType | null
+  division: $Enums.Division | null
+  district: $Enums.District | null
+  upazila: $Enums.Upazila | null
+  street: string | null
   createdAt: Date
   updatedAt: Date
   _count: AddressCountAggregateOutputType | null
@@ -207,11 +207,11 @@ export type AddressWhereInput = {
   NOT?: Prisma.AddressWhereInput | Prisma.AddressWhereInput[]
   id?: Prisma.StringFilter<"Address"> | string
   studentId?: Prisma.StringFilter<"Address"> | string
-  addressType?: Prisma.EnumAddressTypeFilter<"Address"> | $Enums.AddressType
-  division?: Prisma.EnumDivisionFilter<"Address"> | $Enums.Division
-  district?: Prisma.EnumDistrictFilter<"Address"> | $Enums.District
-  upazila?: Prisma.EnumUpazilaFilter<"Address"> | $Enums.Upazila
-  street?: Prisma.StringFilter<"Address"> | string
+  addressType?: Prisma.EnumAddressTypeNullableFilter<"Address"> | $Enums.AddressType | null
+  division?: Prisma.EnumDivisionNullableFilter<"Address"> | $Enums.Division | null
+  district?: Prisma.EnumDistrictNullableFilter<"Address"> | $Enums.District | null
+  upazila?: Prisma.EnumUpazilaNullableFilter<"Address"> | $Enums.Upazila | null
+  street?: Prisma.StringNullableFilter<"Address"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Address"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Address"> | Date | string
   student?: Prisma.XOR<Prisma.StudentProfileScalarRelationFilter, Prisma.StudentProfileWhereInput>
@@ -220,11 +220,11 @@ export type AddressWhereInput = {
 export type AddressOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   studentId?: Prisma.SortOrder
-  addressType?: Prisma.SortOrder
-  division?: Prisma.SortOrder
-  district?: Prisma.SortOrder
-  upazila?: Prisma.SortOrder
-  street?: Prisma.SortOrder
+  addressType?: Prisma.SortOrderInput | Prisma.SortOrder
+  division?: Prisma.SortOrderInput | Prisma.SortOrder
+  district?: Prisma.SortOrderInput | Prisma.SortOrder
+  upazila?: Prisma.SortOrderInput | Prisma.SortOrder
+  street?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   student?: Prisma.StudentProfileOrderByWithRelationInput
@@ -236,11 +236,11 @@ export type AddressWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.AddressWhereInput | Prisma.AddressWhereInput[]
   OR?: Prisma.AddressWhereInput[]
   NOT?: Prisma.AddressWhereInput | Prisma.AddressWhereInput[]
-  addressType?: Prisma.EnumAddressTypeFilter<"Address"> | $Enums.AddressType
-  division?: Prisma.EnumDivisionFilter<"Address"> | $Enums.Division
-  district?: Prisma.EnumDistrictFilter<"Address"> | $Enums.District
-  upazila?: Prisma.EnumUpazilaFilter<"Address"> | $Enums.Upazila
-  street?: Prisma.StringFilter<"Address"> | string
+  addressType?: Prisma.EnumAddressTypeNullableFilter<"Address"> | $Enums.AddressType | null
+  division?: Prisma.EnumDivisionNullableFilter<"Address"> | $Enums.Division | null
+  district?: Prisma.EnumDistrictNullableFilter<"Address"> | $Enums.District | null
+  upazila?: Prisma.EnumUpazilaNullableFilter<"Address"> | $Enums.Upazila | null
+  street?: Prisma.StringNullableFilter<"Address"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Address"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Address"> | Date | string
   student?: Prisma.XOR<Prisma.StudentProfileScalarRelationFilter, Prisma.StudentProfileWhereInput>
@@ -249,11 +249,11 @@ export type AddressWhereUniqueInput = Prisma.AtLeast<{
 export type AddressOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   studentId?: Prisma.SortOrder
-  addressType?: Prisma.SortOrder
-  division?: Prisma.SortOrder
-  district?: Prisma.SortOrder
-  upazila?: Prisma.SortOrder
-  street?: Prisma.SortOrder
+  addressType?: Prisma.SortOrderInput | Prisma.SortOrder
+  division?: Prisma.SortOrderInput | Prisma.SortOrder
+  district?: Prisma.SortOrderInput | Prisma.SortOrder
+  upazila?: Prisma.SortOrderInput | Prisma.SortOrder
+  street?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.AddressCountOrderByAggregateInput
@@ -267,22 +267,22 @@ export type AddressScalarWhereWithAggregatesInput = {
   NOT?: Prisma.AddressScalarWhereWithAggregatesInput | Prisma.AddressScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Address"> | string
   studentId?: Prisma.StringWithAggregatesFilter<"Address"> | string
-  addressType?: Prisma.EnumAddressTypeWithAggregatesFilter<"Address"> | $Enums.AddressType
-  division?: Prisma.EnumDivisionWithAggregatesFilter<"Address"> | $Enums.Division
-  district?: Prisma.EnumDistrictWithAggregatesFilter<"Address"> | $Enums.District
-  upazila?: Prisma.EnumUpazilaWithAggregatesFilter<"Address"> | $Enums.Upazila
-  street?: Prisma.StringWithAggregatesFilter<"Address"> | string
+  addressType?: Prisma.EnumAddressTypeNullableWithAggregatesFilter<"Address"> | $Enums.AddressType | null
+  division?: Prisma.EnumDivisionNullableWithAggregatesFilter<"Address"> | $Enums.Division | null
+  district?: Prisma.EnumDistrictNullableWithAggregatesFilter<"Address"> | $Enums.District | null
+  upazila?: Prisma.EnumUpazilaNullableWithAggregatesFilter<"Address"> | $Enums.Upazila | null
+  street?: Prisma.StringNullableWithAggregatesFilter<"Address"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Address"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Address"> | Date | string
 }
 
 export type AddressCreateInput = {
   id?: string
-  addressType: $Enums.AddressType
-  division: $Enums.Division
-  district: $Enums.District
-  upazila: $Enums.Upazila
-  street: string
+  addressType?: $Enums.AddressType | null
+  division?: $Enums.Division | null
+  district?: $Enums.District | null
+  upazila?: $Enums.Upazila | null
+  street?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   student: Prisma.StudentProfileCreateNestedOneWithoutAddressesInput
@@ -291,22 +291,22 @@ export type AddressCreateInput = {
 export type AddressUncheckedCreateInput = {
   id?: string
   studentId: string
-  addressType: $Enums.AddressType
-  division: $Enums.Division
-  district: $Enums.District
-  upazila: $Enums.Upazila
-  street: string
+  addressType?: $Enums.AddressType | null
+  division?: $Enums.Division | null
+  district?: $Enums.District | null
+  upazila?: $Enums.Upazila | null
+  street?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
 
 export type AddressUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  addressType?: Prisma.EnumAddressTypeFieldUpdateOperationsInput | $Enums.AddressType
-  division?: Prisma.EnumDivisionFieldUpdateOperationsInput | $Enums.Division
-  district?: Prisma.EnumDistrictFieldUpdateOperationsInput | $Enums.District
-  upazila?: Prisma.EnumUpazilaFieldUpdateOperationsInput | $Enums.Upazila
-  street?: Prisma.StringFieldUpdateOperationsInput | string
+  addressType?: Prisma.NullableEnumAddressTypeFieldUpdateOperationsInput | $Enums.AddressType | null
+  division?: Prisma.NullableEnumDivisionFieldUpdateOperationsInput | $Enums.Division | null
+  district?: Prisma.NullableEnumDistrictFieldUpdateOperationsInput | $Enums.District | null
+  upazila?: Prisma.NullableEnumUpazilaFieldUpdateOperationsInput | $Enums.Upazila | null
+  street?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   student?: Prisma.StudentProfileUpdateOneRequiredWithoutAddressesNestedInput
@@ -315,11 +315,11 @@ export type AddressUpdateInput = {
 export type AddressUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   studentId?: Prisma.StringFieldUpdateOperationsInput | string
-  addressType?: Prisma.EnumAddressTypeFieldUpdateOperationsInput | $Enums.AddressType
-  division?: Prisma.EnumDivisionFieldUpdateOperationsInput | $Enums.Division
-  district?: Prisma.EnumDistrictFieldUpdateOperationsInput | $Enums.District
-  upazila?: Prisma.EnumUpazilaFieldUpdateOperationsInput | $Enums.Upazila
-  street?: Prisma.StringFieldUpdateOperationsInput | string
+  addressType?: Prisma.NullableEnumAddressTypeFieldUpdateOperationsInput | $Enums.AddressType | null
+  division?: Prisma.NullableEnumDivisionFieldUpdateOperationsInput | $Enums.Division | null
+  district?: Prisma.NullableEnumDistrictFieldUpdateOperationsInput | $Enums.District | null
+  upazila?: Prisma.NullableEnumUpazilaFieldUpdateOperationsInput | $Enums.Upazila | null
+  street?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -327,22 +327,22 @@ export type AddressUncheckedUpdateInput = {
 export type AddressCreateManyInput = {
   id?: string
   studentId: string
-  addressType: $Enums.AddressType
-  division: $Enums.Division
-  district: $Enums.District
-  upazila: $Enums.Upazila
-  street: string
+  addressType?: $Enums.AddressType | null
+  division?: $Enums.Division | null
+  district?: $Enums.District | null
+  upazila?: $Enums.Upazila | null
+  street?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
 
 export type AddressUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  addressType?: Prisma.EnumAddressTypeFieldUpdateOperationsInput | $Enums.AddressType
-  division?: Prisma.EnumDivisionFieldUpdateOperationsInput | $Enums.Division
-  district?: Prisma.EnumDistrictFieldUpdateOperationsInput | $Enums.District
-  upazila?: Prisma.EnumUpazilaFieldUpdateOperationsInput | $Enums.Upazila
-  street?: Prisma.StringFieldUpdateOperationsInput | string
+  addressType?: Prisma.NullableEnumAddressTypeFieldUpdateOperationsInput | $Enums.AddressType | null
+  division?: Prisma.NullableEnumDivisionFieldUpdateOperationsInput | $Enums.Division | null
+  district?: Prisma.NullableEnumDistrictFieldUpdateOperationsInput | $Enums.District | null
+  upazila?: Prisma.NullableEnumUpazilaFieldUpdateOperationsInput | $Enums.Upazila | null
+  street?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -350,11 +350,11 @@ export type AddressUpdateManyMutationInput = {
 export type AddressUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   studentId?: Prisma.StringFieldUpdateOperationsInput | string
-  addressType?: Prisma.EnumAddressTypeFieldUpdateOperationsInput | $Enums.AddressType
-  division?: Prisma.EnumDivisionFieldUpdateOperationsInput | $Enums.Division
-  district?: Prisma.EnumDistrictFieldUpdateOperationsInput | $Enums.District
-  upazila?: Prisma.EnumUpazilaFieldUpdateOperationsInput | $Enums.Upazila
-  street?: Prisma.StringFieldUpdateOperationsInput | string
+  addressType?: Prisma.NullableEnumAddressTypeFieldUpdateOperationsInput | $Enums.AddressType | null
+  division?: Prisma.NullableEnumDivisionFieldUpdateOperationsInput | $Enums.Division | null
+  district?: Prisma.NullableEnumDistrictFieldUpdateOperationsInput | $Enums.District | null
+  upazila?: Prisma.NullableEnumUpazilaFieldUpdateOperationsInput | $Enums.Upazila | null
+  street?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -409,20 +409,24 @@ export type StringFieldUpdateOperationsInput = {
   set?: string
 }
 
-export type EnumAddressTypeFieldUpdateOperationsInput = {
-  set?: $Enums.AddressType
+export type NullableEnumAddressTypeFieldUpdateOperationsInput = {
+  set?: $Enums.AddressType | null
 }
 
-export type EnumDivisionFieldUpdateOperationsInput = {
-  set?: $Enums.Division
+export type NullableEnumDivisionFieldUpdateOperationsInput = {
+  set?: $Enums.Division | null
 }
 
-export type EnumDistrictFieldUpdateOperationsInput = {
-  set?: $Enums.District
+export type NullableEnumDistrictFieldUpdateOperationsInput = {
+  set?: $Enums.District | null
 }
 
-export type EnumUpazilaFieldUpdateOperationsInput = {
-  set?: $Enums.Upazila
+export type NullableEnumUpazilaFieldUpdateOperationsInput = {
+  set?: $Enums.Upazila | null
+}
+
+export type NullableStringFieldUpdateOperationsInput = {
+  set?: string | null
 }
 
 export type DateTimeFieldUpdateOperationsInput = {
@@ -473,22 +477,22 @@ export type AddressUncheckedUpdateManyWithoutStudentNestedInput = {
 
 export type AddressCreateWithoutStudentInput = {
   id?: string
-  addressType: $Enums.AddressType
-  division: $Enums.Division
-  district: $Enums.District
-  upazila: $Enums.Upazila
-  street: string
+  addressType?: $Enums.AddressType | null
+  division?: $Enums.Division | null
+  district?: $Enums.District | null
+  upazila?: $Enums.Upazila | null
+  street?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
 
 export type AddressUncheckedCreateWithoutStudentInput = {
   id?: string
-  addressType: $Enums.AddressType
-  division: $Enums.Division
-  district: $Enums.District
-  upazila: $Enums.Upazila
-  street: string
+  addressType?: $Enums.AddressType | null
+  division?: $Enums.Division | null
+  district?: $Enums.District | null
+  upazila?: $Enums.Upazila | null
+  street?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -525,55 +529,55 @@ export type AddressScalarWhereInput = {
   NOT?: Prisma.AddressScalarWhereInput | Prisma.AddressScalarWhereInput[]
   id?: Prisma.StringFilter<"Address"> | string
   studentId?: Prisma.StringFilter<"Address"> | string
-  addressType?: Prisma.EnumAddressTypeFilter<"Address"> | $Enums.AddressType
-  division?: Prisma.EnumDivisionFilter<"Address"> | $Enums.Division
-  district?: Prisma.EnumDistrictFilter<"Address"> | $Enums.District
-  upazila?: Prisma.EnumUpazilaFilter<"Address"> | $Enums.Upazila
-  street?: Prisma.StringFilter<"Address"> | string
+  addressType?: Prisma.EnumAddressTypeNullableFilter<"Address"> | $Enums.AddressType | null
+  division?: Prisma.EnumDivisionNullableFilter<"Address"> | $Enums.Division | null
+  district?: Prisma.EnumDistrictNullableFilter<"Address"> | $Enums.District | null
+  upazila?: Prisma.EnumUpazilaNullableFilter<"Address"> | $Enums.Upazila | null
+  street?: Prisma.StringNullableFilter<"Address"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Address"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Address"> | Date | string
 }
 
 export type AddressCreateManyStudentInput = {
   id?: string
-  addressType: $Enums.AddressType
-  division: $Enums.Division
-  district: $Enums.District
-  upazila: $Enums.Upazila
-  street: string
+  addressType?: $Enums.AddressType | null
+  division?: $Enums.Division | null
+  district?: $Enums.District | null
+  upazila?: $Enums.Upazila | null
+  street?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
 
 export type AddressUpdateWithoutStudentInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  addressType?: Prisma.EnumAddressTypeFieldUpdateOperationsInput | $Enums.AddressType
-  division?: Prisma.EnumDivisionFieldUpdateOperationsInput | $Enums.Division
-  district?: Prisma.EnumDistrictFieldUpdateOperationsInput | $Enums.District
-  upazila?: Prisma.EnumUpazilaFieldUpdateOperationsInput | $Enums.Upazila
-  street?: Prisma.StringFieldUpdateOperationsInput | string
+  addressType?: Prisma.NullableEnumAddressTypeFieldUpdateOperationsInput | $Enums.AddressType | null
+  division?: Prisma.NullableEnumDivisionFieldUpdateOperationsInput | $Enums.Division | null
+  district?: Prisma.NullableEnumDistrictFieldUpdateOperationsInput | $Enums.District | null
+  upazila?: Prisma.NullableEnumUpazilaFieldUpdateOperationsInput | $Enums.Upazila | null
+  street?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type AddressUncheckedUpdateWithoutStudentInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  addressType?: Prisma.EnumAddressTypeFieldUpdateOperationsInput | $Enums.AddressType
-  division?: Prisma.EnumDivisionFieldUpdateOperationsInput | $Enums.Division
-  district?: Prisma.EnumDistrictFieldUpdateOperationsInput | $Enums.District
-  upazila?: Prisma.EnumUpazilaFieldUpdateOperationsInput | $Enums.Upazila
-  street?: Prisma.StringFieldUpdateOperationsInput | string
+  addressType?: Prisma.NullableEnumAddressTypeFieldUpdateOperationsInput | $Enums.AddressType | null
+  division?: Prisma.NullableEnumDivisionFieldUpdateOperationsInput | $Enums.Division | null
+  district?: Prisma.NullableEnumDistrictFieldUpdateOperationsInput | $Enums.District | null
+  upazila?: Prisma.NullableEnumUpazilaFieldUpdateOperationsInput | $Enums.Upazila | null
+  street?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type AddressUncheckedUpdateManyWithoutStudentInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  addressType?: Prisma.EnumAddressTypeFieldUpdateOperationsInput | $Enums.AddressType
-  division?: Prisma.EnumDivisionFieldUpdateOperationsInput | $Enums.Division
-  district?: Prisma.EnumDistrictFieldUpdateOperationsInput | $Enums.District
-  upazila?: Prisma.EnumUpazilaFieldUpdateOperationsInput | $Enums.Upazila
-  street?: Prisma.StringFieldUpdateOperationsInput | string
+  addressType?: Prisma.NullableEnumAddressTypeFieldUpdateOperationsInput | $Enums.AddressType | null
+  division?: Prisma.NullableEnumDivisionFieldUpdateOperationsInput | $Enums.Division | null
+  district?: Prisma.NullableEnumDistrictFieldUpdateOperationsInput | $Enums.District | null
+  upazila?: Prisma.NullableEnumUpazilaFieldUpdateOperationsInput | $Enums.Upazila | null
+  street?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -650,11 +654,11 @@ export type $AddressPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     studentId: string
-    addressType: $Enums.AddressType
-    division: $Enums.Division
-    district: $Enums.District
-    upazila: $Enums.Upazila
-    street: string
+    addressType: $Enums.AddressType | null
+    division: $Enums.Division | null
+    district: $Enums.District | null
+    upazila: $Enums.Upazila | null
+    street: string | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["address"]>

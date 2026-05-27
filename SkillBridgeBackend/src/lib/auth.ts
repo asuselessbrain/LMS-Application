@@ -16,22 +16,22 @@ export const auth = betterAuth({
             role: {
                 type: "string",
                 required: true,
-                default: UserRole.STUDENT
+                defaultValue: UserRole.STUDENT
             },
             isBlocked: {
                 type: "boolean",
                 required: true,
-                default: false
+                defaultValue: false
             },
             isDeleted: {
                 type: "boolean",
                 required: true,
-                default: false
+                defaultValue: false
             },
             needPasswordReset: {
                 type: "boolean",
                 required: true,
-                default: false
+                defaultValue: false
             }
         }
     }
