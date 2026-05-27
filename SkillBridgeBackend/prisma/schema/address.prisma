@@ -1,0 +1,787 @@
+model Address {
+    id        String         @id @default(uuid())
+    studentId String         @unique
+    student   StudentProfile @relation(fields: [studentId], references: [id])
+
+    addressType AddressType
+    division    Division
+    district    District
+    upazila     Upazila
+    street      String
+    createdAt   DateTime    @default(now())
+    updatedAt   DateTime    @updatedAt
+}
+
+enum AddressType {
+    PERMANENT
+    PRESENT
+}
+
+enum Division {
+    DHAKA
+    CHITTAGONG
+    RAJSHAHI
+    KHULNA
+    BARISAL
+    SYLHET
+    RANGPUR
+    MYMENSINGH
+}
+
+enum District {
+    // Dhaka Division (13)
+    DHAKA
+    FARIDPUR
+    GAZIPUR
+    GOPALGANJ
+    KISHOREGANJ
+    MADARIPUR
+    MANIKGANJ
+    MUNSHIGANJ
+    NARAYANGANJ
+    NARSINGDI
+    RAJBARI
+    SHARIATPUR
+    TANGAIL
+
+    // Chittagong Division (11)
+    CHITTAGONG
+    BANDARBAN
+    BRAHMANBARIA
+    CHANDPUR
+    COMILLA
+    COXSBAZAR
+    FENI
+    KHAGRACHHARI
+    LAKSHMIPUR
+    NOAKHALI
+    RANGAMATI
+
+    // Rajshahi Division (8)
+    RAJSHAHI
+    BOGURA
+    JOYPURHAT
+    NAOGAON
+    NATORE
+    CHAPAINAWABGANJ
+    PABNA
+    SIRAJGANJ
+
+    // Khulna Division (10)
+    KHULNA
+    BAGERHAT
+    CHUADANGA
+    JASHORE
+    JHENAIDAH
+    KUSHTIA
+    MAGURA
+    MEHERPUR
+    NARAIL
+    SATKHIRA
+
+    // Barishal Division (6)
+    BARISHAL
+    BARGUNA
+    BHOLA
+    JHALOKATHI
+    PATUAKHALI
+    PIROJPUR
+
+    // Sylhet Division (4)
+    SYLHET
+    HABIGANJ
+    MOULVIBAZAR
+    SUNAMGANJ
+
+    // Rangpur Division (8)
+    RANGPUR
+    DINAJPUR
+    GAIBANDHA
+    KURIGRAM
+    LALMONIRHAT
+    NILPHAMARI
+    PANCHAGARH
+    THAKURGAON
+
+    // Mymensingh Division (4)
+    MYMENSINGH
+    JAMALPUR
+    NETROKONA
+    SHERPUR
+}
+
+enum Upazila {
+    // ==================== DHAKA DIVISION ====================
+
+    // Dhaka District (42)
+    DHAMRAI
+    DOHAR
+    KERANIGANJ
+    NAWABGANJ_DHAKA
+    SAVAR
+    TEJGAON
+    MOHAMMADPUR
+    KOTWALI_DHAKA
+    SUTRAPUR
+    MOTIJHEEL
+    RAMNA
+    GULSHAN
+    MIRPUR
+    PALLABI
+    CANTONMENT_DHAKA
+    UTTARA
+    KHILKHET
+    SABUJBAGH
+    DEMRA
+    JATRABARI
+    SHAHBAGH
+    LALBAGH
+    HAZARIBAGH
+    NEW_MARKET
+    DHANMONDI
+    TEJGAON_INDUSTRIAL
+    BADDA
+    KAFRUL
+    KAMRANGIRCHAR
+    KHILGAON
+    MUGDA
+    SHAH_ALI
+    TURAG
+    DAKSHINKHAN
+    UTTARKHAN
+    BIMANBANDAR
+    RUPNAGAR
+    VATARA
+    ADABOR
+    MOHAKHALI
+    RAMPURA
+    BANANI
+
+    // Faridpur District (9)
+    FARIDPUR_SADAR
+    ALFADANGA
+    BOALMARI
+    SADARPUR_FARIDPUR
+    NAGARKANDA
+    BHANGA
+    CHARBHADRASAN
+    MADHUKHALI
+    SALTHA
+
+    // Gazipur District (5)
+    GAZIPUR_SADAR
+    KALIAKAIR
+    KAPASIA
+    SREEPUR
+    KALIGANJ_GAZIPUR
+
+    // Gopalganj District (5)
+    GOPALGANJ_SADAR
+    KASHIANI
+    TUNGIPARA
+    KOTALIPARA
+    MUKSUDPUR
+
+    // Kishoreganj District (13)
+    KISHOREGANJ_SADAR
+    ASTAGRAM
+    BAJITPUR
+    BHAIRAB
+    HOSSAINPUR
+    ITNA
+    KARIMGANJ_KISHOREGANJ
+    KATIADI
+    KULIARCHAR
+    MITHAMAIN
+    NIKLI
+    PAKUNDIA
+    TARAIL
+
+    // Madaripur District (4)
+    MADARIPUR_SADAR
+    RAJOIR
+    KALKINI
+    SHIBCHAR
+
+    // Manikganj District (7)
+    MANIKGANJ_SADAR
+    SINGAIR
+    SHIBALAYA
+    SATURIA
+    HARIRAMPUR
+    GHIOR
+    DAULATPUR_MANIKGANJ
+
+    // Munshiganj District (6)
+    MUNSHIGANJ_SADAR
+    SREENAGAR
+    SIRAJDIKHAN
+    LOUHAJANG
+    GAJARIA
+    TONGIBARI
+
+    // Narayanganj District (5)
+    NARAYANGANJ_SADAR
+    ARAIHAZAR
+    BANDAR_NARAYANGANJ
+    RUPGANJ
+    SONARGAON
+
+    // Narsingdi District (6)
+    NARSINGDI_SADAR
+    BELABO
+    MONOHARDI
+    PALASH
+    RAIPURA_NARSINGDI
+    SHIBPUR
+
+    // Rajbari District (5)
+    RAJBARI_SADAR
+    GOALANDA
+    PANGSHA
+    BALIAKANDI
+    KALUKHALI_RAJBARI
+
+    // Shariatpur District (6)
+    SHARIATPUR_SADAR
+    NARIA
+    ZAJIRA
+    GOSAIRHAT
+    BHEDARGANJ
+    DAMUDYA
+
+    // Tangail District (12)
+    TANGAIL_SADAR
+    SAKHIPUR
+    BASAIL
+    MADHUPUR
+    GHATAIL
+    KALIHATI
+    NAGARPUR_TANGAIL
+    MIRZAPUR
+    GOPALPUR_TANGAIL
+    DELDUAR
+    BHUAPUR
+    DHANBARI
+
+    // ==================== CHITTAGONG DIVISION ====================
+
+    // Chittagong District (15)
+    ANWARA
+    BANSHKHALI
+    BOALKHALI
+    CHANDANAISH
+    FATIKCHHARI
+    HATHAZARI
+    LOHAGARA_CHITTAGONG
+    MIRSHARAI
+    PATIYA
+    RANGUNIA
+    RAOZAN
+    SANDWIP
+    SATKANIA
+    SITAKUNDA
+    KARNAPHULI
+
+    // Bandarban District (7)
+    BANDARBAN_SADAR
+    THANCHI
+    LAMA
+    NAIKHONGCHHARI
+    ALI_KADAM
+    ROWANGCHHARI
+    RUMA
+
+    // Brahmanbaria District (9)
+    BRAHMANBARIA_SADAR
+    KASBA
+    NASIRNAGAR
+    SARAIL
+    ASHUGANJ
+    AKHAURA
+    NABINAGAR_BRAHMANBARIA
+    BANCHARAMPUR
+    BIJOYNAGAR
+
+    // Chandpur District (8)
+    CHANDPUR_SADAR
+    FARIDGANJ
+    HAIMCHAR
+    HAZIGANJ
+    KACHUA_CHANDPUR
+    MATLAB_DAKSHIN
+    MATLAB_UTTAR
+    SHAHRASTI
+
+    // Comilla District (17)
+    COMILLA_SADAR
+    BARURA
+    BRAHMANPARA
+    BURICHANG
+    CHANDINA
+    CHAUDDAGRAM
+    DAUDKANDI
+    DEBIDWAR
+    HOMNA
+    LAKSAM
+    MURADNAGAR
+    NANGALKOT
+    COMILLA_SADAR_DAKSHIN
+    MEGHNA
+    MONOHARGONJ
+    TITAS
+    LALMAI
+
+    // Cox's Bazar District (8)
+    COXSBAZAR_SADAR
+    CHAKARIA
+    KUTUBDIA
+    UKHIA
+    MOHESHKHALI
+    PEKUA
+    RAMU
+    TEKNAF
+
+    // Feni District (6)
+    FENI_SADAR
+    CHAGALNAIYA
+    DAGANBHUIYAN
+    PARSHURAM
+    FULGAZI
+    SONAGAZI
+
+    // Khagrachhari District (9)
+    KHAGRACHHARI_SADAR
+    DIGHINALA
+    PANCHARI
+    LAXMICHHARI
+    MOHALCHARI
+    MANIKCHARI
+    RAMGARH_KHAGRACHHARI
+    MATIRANGA
+    GUIMARA
+
+    // Lakshmipur District (5)
+    LAKSHMIPUR_SADAR
+    RAIPUR_LAKSHMIPUR
+    RAMGANJ
+    RAMGATI
+    KOMOL_NAGAR
+
+    // Noakhali District (9)
+    NOAKHALI_SADAR
+    BEGUMGANJ
+    CHATKHIL
+    COMPANIGANJ_NOAKHALI
+    HATIYA
+    SENBAGH
+    SONAIMURI
+    SUBARNACHAR
+    KABIRHAT
+
+    // Rangamati District (10)
+    RANGAMATI_SADAR
+    KAPTAI
+    KAWKHALI_RANGAMATI
+    BAGHAICHHARI
+    BARKAL
+    LANGADU
+    RAJASTHALI
+    BELAICHHARI
+    JURAICHHARI
+    NANIARCHAR
+
+    // ==================== RAJSHAHI DIVISION ====================
+
+    // Rajshahi District (9)
+    RAJSHAHI_SADAR
+    BAGHA
+    BAGMARA
+    CHARGHAT
+    DURGAPUR_RAJSHAHI
+    GODAGARI
+    MOHANPUR
+    PABA
+    PUTHIA
+    TANORE
+
+    // Bogura District (12)
+    BOGURA_SADAR
+    ADAMDIGHI
+    DHUNAT
+    DHUPCHANCHIA
+    GABTALI
+    KAHALOO
+    NANDIGRAM
+    SARIAKANDI
+    SHAJAHANPUR
+    SHERPUR_BOGURA
+    SHIBGANJ_BOGURA
+    SONATALA
+
+    // Joypurhat District (5)
+    JOYPURHAT_SADAR
+    AKKELPUR
+    KALAI
+    KHETLAL
+    PANCHBIBI
+
+    // Naogaon District (11)
+    NAOGAON_SADAR
+    ATRAI
+    BADALGACHHI
+    MANDA
+    DHAMOIRHAT
+    MOHADEVPUR
+    NIAMATPUR
+    PATNITALA
+    PORSHA
+    RANINAGAR
+    SAPAHAR
+
+    // Natore District (7)
+    NATORE_SADAR
+    BAGATIPARA
+    BARAIGRAM
+    GURUDASPUR
+    LALPUR
+    SINGRA
+    NALDANGA
+
+    // Chapainawabganj District (5)
+    CHAPAINAWABGANJ_SADAR
+    BHOLAHAT
+    GOMASTAPUR
+    NACHOLE
+    SHIBGANJ_CHAPAINAWABGANJ
+
+    // Pabna District (9)
+    PABNA_SADAR
+    ATGHARIA
+    BERA
+    BHANGURA
+    CHATMOHAR
+    FARIDPUR_PABNA
+    ISHWARDI
+    SANTHIA
+    SUJANAGAR
+
+    // Sirajganj District (9)
+    SIRAJGANJ_SADAR
+    BELKUCHI
+    CHAUHALI
+    KAMARKHANDA
+    KAZIPUR
+    RAIGANJ
+    SHAHJADPUR
+    TARASH
+    ULLAHPARA
+
+    // ==================== KHULNA DIVISION ====================
+
+    // Khulna District (9)
+    KHULNA_SADAR
+    BATIAGHATA
+    DACOPE
+    DUMURIA
+    DIGHALIA
+    KOYRA
+    PAIKGACHHA
+    PHULTALA
+    RUPSA
+    TEROKHADA
+
+    // Bagerhat District (9)
+    BAGERHAT_SADAR
+    CHITALMARI
+    FAKIRHAT
+    KACHUA_BAGERHAT
+    MOLLAHAT
+    MONGLA
+    MORRELGANJ
+    RAMPAL
+    SARANKHOLA
+
+    // Chuadanga District (4)
+    CHUADANGA_SADAR
+    ALAMDANGA
+    DAMURHUDA
+    JIBANNAGAR
+
+    // Jashore District (8)
+    JASHORE_SADAR
+    ABHAYNAGAR
+    BAGHERPARA
+    CHAUGACHHA
+    JHIKARGACHHA
+    KESHABPUR
+    MANIRAMPUR
+    SHARSHA
+
+    // Jhenaidah District (6)
+    JHENAIDAH_SADAR
+    HARINAKUNDA
+    KALIGANJ_JHENAIDAH
+    KOTCHANDPUR
+    MAHESHPUR
+    SHAILKUPA
+
+    // Kushtia District (6)
+    KUSHTIA_SADAR
+    BHERAMARA
+    DAULATPUR_KUSHTIA
+    KHOKSA
+    KUMARKHALI
+    MIRPUR_KUSHTIA
+
+    // Magura District (4)
+    MAGURA_SADAR
+    MOHAMMADPUR_MAGURA
+    SHALIKHA
+    SREEPUR_MAGURA
+
+    // Meherpur District (3)
+    MEHERPUR_SADAR
+    GANGNI
+    MUJIBNAGAR
+
+    // Narail District (3)
+    NARAIL_SADAR
+    KALIA
+    LOHAGARA_NARAIL
+
+    // Satkhira District (7)
+    SATKHIRA_SADAR
+    ASSASUNI
+    DEBHATA
+    KALAROA
+    KALIGANJ_SATKHIRA
+    SHYAMNAGAR
+    TALA
+
+    // ==================== BARISHAL DIVISION ====================
+
+    // Barishal District (10)
+    BARISHAL_SADAR
+    AGAILJHARA
+    BABUGANJ
+    BAKERGANJ
+    BANARIPARA
+    GAURNADI
+    HIZLA
+    MEHENDIGANJ
+    MULADI
+    WAZIRPUR
+
+    // Barguna District (6)
+    BARGUNA_SADAR
+    AMTALI
+    BAMNA
+    BETAGI
+    PATHARGHATA
+    TALTALI
+
+    // Bhola District (7)
+    BHOLA_SADAR
+    BURHANUDDIN
+    CHAR_FASSON
+    DAULATKHAN
+    LALMOHAN
+    MANPURA
+    TAZUMUDDIN
+
+    // Jhalokathi District (4)
+    JHALOKATHI_SADAR
+    KATHALIA
+    NALCHITY
+    RAJAPUR
+
+    // Patuakhali District (8)
+    PATUAKHALI_SADAR
+    BAUPHAL
+    DASHMINA
+    DUMKI
+    GALACHIPA
+    KALAPARA
+    MIRZAGANJ
+    RANGABALI
+
+    // Pirojpur District (7)
+    PIROJPUR_SADAR
+    BHANDARIA
+    KAWKHALI_PIROJPUR
+    MATHBARIA
+    NAZIRPUR
+    NESARABAD
+    INDURKANI
+
+    // ==================== SYLHET DIVISION ====================
+
+    // Sylhet District (13)
+    SYLHET_SADAR
+    BALAGANJ
+    BEANIBAZAR
+    BISHWANATH
+    COMPANIGANJ_SYLHET
+    FENCHUGANJ
+    GOLAPGANJ
+    GOWAINGHAT
+    JAINTIAPUR
+    KANAIGHAT
+    ZAKIGANJ
+    DAKSHIN_SURMA
+    OSMANI_NAGAR
+
+    // Habiganj District (9)
+    HABIGANJ_SADAR
+    AJMIRIGANJ
+    BAHUBAL
+    BANIYACHONG
+    CHUNARUGHAT
+    LAKHAI
+    MADHABPUR
+    NABIGANJ_HABIGANJ
+    SAYESTAGANJ
+
+    // Moulvibazar District (7)
+    MOULVIBAZAR_SADAR
+    BARLEKHA
+    JURI
+    KAMALGANJ
+    KULAURA
+    RAJNAGAR
+    SREEMANGAL
+
+    // Sunamganj District (11)
+    SUNAMGANJ_SADAR
+    BISHWAMVARPUR
+    CHHATAK
+    DERAI
+    DHARAMAPASHA
+    DOWARABAZAR
+    JAGANNATHPUR
+    JAMALGANJ
+    SHALLA
+    TAHIRPUR
+
+    // ==================== RANGPUR DIVISION ====================
+
+    // Rangpur District (8)
+    RANGPUR_SADAR
+    BADARGANJ
+    GANGACHARA
+    KAUNIA
+    MITHAPUKUR
+    PIRGACHHA
+    PIRGANJ
+    TARAGANJ
+
+    // Dinajpur District (13)
+    DINAJPUR_SADAR
+    BIRAMPUR
+    BIRGANJ
+    BIRAL
+    BOCHAGANJ
+    CHIRIRBANDAR
+    FULBARI
+    GHORAGHAT
+    HAKIMPUR
+    KAHAROLE
+    KHANSAMA
+    NAWABGANJ_DINAJPUR
+    PARBATIPUR
+
+    // Gaibandha District (7)
+    GAIBANDHA_SADAR
+    FULCHHARI
+    GABTALI_GAIBANDHA
+    GOBINDAGANJ
+    PALASHBARI
+    SADULLAPUR
+    SUNDARGANJ
+
+    // Kurigram District (9)
+    KURIGRAM_SADAR
+    BHURUNGAMARI
+    CHAR_RAJIBPUR
+    CHILMARI
+    PHULBARI_KURIGRAM
+    NAGESHWARI
+    RAJARHAT
+    RAOMARI
+    ULIPUR
+
+    // Lalmonirhat District (5)
+    LALMONIRHAT_SADAR
+    ADITMARI
+    HATIBANDHA
+    KALIGANJ_LALMONIRHAT
+    PATGRAM
+
+    // Nilphamari District (6)
+    NILPHAMARI_SADAR
+    DIMLA
+    DOMAR
+    JALDHAKA
+    KISHOREGANJ_NILPHAMARI
+    SAIDPUR
+
+    // Panchagarh District (5)
+    PANCHAGARH_SADAR
+    ATWARI
+    BODA
+    DEBIGANJ
+    TETULIA
+
+    // Thakurgaon District (5)
+    THAKURGAON_SADAR
+    BALIADANGI
+    HARIPUR
+    PIRGANJ_THAKURGAON
+    RANISANKAIL
+
+    // ==================== MYMENSINGH DIVISION ====================
+
+    // Mymensingh District (13)
+    MYMENSINGH_SADAR
+    BHALUKA
+    DHOBAURA
+    FULBARIA_MYMENSINGH
+    GAFFARGAON
+    GAURIPUR
+    HALUAGHAT
+    ISHWARGANJ
+    MUKTAGACHHA
+    NANDAIL
+    PHULPUR
+    TRISHAL
+    TARA_KHANDA
+
+    // Jamalpur District (7)
+    JAMALPUR_SADAR
+    BAKSIGANJ
+    DEWANGANJ
+    ISLAMPUR
+    MADARGANJ
+    MELANDAHA
+    SARISHABARI
+
+    // Netrokona District (10)
+    NETROKONA_SADAR
+    ATPARA
+    BARHATTA
+    DURGAPUR_NETROKONA
+    KALMAKANDA
+    KENDUA
+    KHALIAJURI
+    MADAN
+    MOHANGANJ
+    PURBADHALA
+
+    // Sherpur District (5)
+    SHERPUR_SADAR
+    JHENAIGATI
+    NAKLA
+    NALITABARI
+    SREEBARDI
+}
