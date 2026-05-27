@@ -1,0 +1,18 @@
+model Education {
+    id           String    @id @default(uuid())
+    studentId    String
+    institution  String?
+    degree       String?
+    fieldOfStudy String?
+    startDate    DateTime?
+    endDate      DateTime?
+    grade        String?
+    description  String?
+
+    student StudentProfile @relation(fields: [studentId], references: [id])
+
+    @@index([studentId], name: "idx_education_studentId")
+    @@index([institution], name: "idx_education_institution")
+
+    @@map("educations")
+}
